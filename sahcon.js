@@ -8,7 +8,8 @@ const loadPage = async () => {
   // Get page
   document.body.className = "loading"
   pageUrl = `./pages/${getUrlPage()}.html`
-  if (/flaringk/.test(window.location.href)) { pageUrl = `./flaringk/pages/${getUrlPage()}.html` }
+  if (/flaringk/.test(window.location.href)) { pageUrl = `./archer/pages/${getUrlPage()}.html` }
+  console.log(pageUrl)
   pageHtml = await fetch(pageUrl).then(e => e.text())
 
   // "Load page"
