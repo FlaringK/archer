@@ -1,0 +1,205 @@
+:root {
+	--ta-red: #ea4227;
+	--ta-black: #131113;
+	--ta-lilac: #cfa3fd;
+	--ta-white: #f1f1f1;
+}
+
+
+/* Google fonts */
+/* .museomoderno-<uniquifier> {
+	font-family: "MuseoModerno", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+}
+
+.montserrat-<uniquifier> {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+} */
+
+body {
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	min-height: 90vh;
+	box-sizing: border-box;
+	
+
+	background-color: var(--ta-black);
+	color: var(--ta-white);
+
+	background-image: linear-gradient(180deg, var(--ta-black), var(--ta-lilac));
+	background-size: 100% 400%;
+
+	overflow-x: hidden;
+}
+
+#nav {
+	background-color: var(--ta-red);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	box-sizing: border-box;
+	z-index: 20;
+	
+	padding: 2em;
+	text-align: center;
+	transition: left .25s;
+
+
+	#logo {
+		width: 150px;
+		transition: all .5s;
+	}
+
+	#linkList {
+		list-style-type: none;
+		padding: 0;
+
+		a {
+			display: block;
+			position: relative;
+			text-decoration: none;
+			color: currentColor;
+			font-size: 28px;
+			transition: color .25s;
+			z-index: 10;
+			margin: 1em 0 0;
+
+			&.sublink {
+				font-size: 18px;
+				margin: .5em 0 0;
+			}
+
+			&.selected {
+				color: var(--ta-black);
+			}
+		}
+
+		a::before {
+			content: "";
+			background-color: var(--ta-white);
+			position: absolute;
+			inset: 0;
+			right: 100%;
+
+			z-index: -10;
+			transition: right .25s;
+		}
+
+		a.selected::before {
+			right: 0;
+		}
+	}
+}
+
+#main {
+	margin-left: 250px;
+	text-align: center;
+}
+
+#content {
+	padding: 2em;
+	transition: opacity .25s;
+}
+
+#phoneNav {
+	display: none;
+}
+
+@media only screen and (max-device-width: 768px){
+
+	#main {
+		margin-left: 0;
+	}
+
+	#nav:not(.phoneOpen) {
+		left: -300px;
+	}
+
+	#phoneNav {
+		display: block;
+		background-color: var(--ta-red);
+		position: sticky;
+		top: 0;
+		padding: 5px 10px;
+	}
+
+	#phoneLogo {
+		max-height: 60px;
+		transition: all .5s;
+	}
+
+}
+
+/* TRANSITIONING ANIMATIONS */
+.loading #logo, .transitioning #logo, .loading #phoneLogo, .transitioning #phoneLogo {
+	scale: 1 -1;
+}
+
+.transitioning #content{
+	opacity: 0;
+}
+
+/* Common Components */
+
+.linkRow {
+
+	margin-top: 1em;
+	display: flex;
+	justify-content: center;
+	gap: 2em;
+
+	a {
+		transition: all .25s;
+	}
+
+	a:hover {
+		scale: 1.1;
+	}
+
+	img {
+		width: 50px;
+		filter: invert(1);
+	}
+
+}
+
+.selectionHub {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	flex-wrap: wrap;
+	padding: 1em;
+
+	& > a {
+		display: block;
+		max-height: 40vh;
+		padding: 1em 2em;
+		border-radius: 1em;
+		transition: scale .25s;
+		background-size: cover;
+		background-position: center;
+
+		&:hover {
+			scale: 1.05;
+			z-index: 10;
+
+			img {
+				scale: 1.1;
+			}
+		}
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		transition: scale .25s;
+	}
+}

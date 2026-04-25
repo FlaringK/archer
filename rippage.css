@@ -1,0 +1,81 @@
+/*
+ Torn left edge banner
+
+ License: GPL 3.0
+ License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+ Structure:
+ <div class="torn_container torn_left torn_right">
+	<div></div>
+	<div>Torn Edge Banner</div>
+ </div>
+*/
+/* https://opdiv.com/2021/02/28/torn-edges-css/ */
+
+body{
+	/* Settings */
+	--torn-shadow-offset-x:-2px;
+	--torn-shadow-offset-y:2px;
+	--torn-shadow-background-color:rgba(0,0,0,0.25);
+	--torn-background-color:var(--ta-red);
+	--torn-left-width:10px;
+	--torn-right-width:10px;
+	--torn-left-clip-path:polygon(26% 0%, 45% 1%, 45% 3%, 95% 4%, 1% 6%, 87% 7%, 29% 9%, 73% 10%, 50% 12%, 9% 13%, 12% 14%, 77% 16%, 80% 17%, 56% 19%, 12% 20%, 78% 22%, 96% 23%, 26% 25%, 9% 26%, 49% 28%, 23% 29%, 17% 30%, 63% 32%, 39% 33%, 41% 35%, 65% 36%, 80% 38%, 31% 39%, 26% 41%, 36% 42%, 25% 43%, 86% 45%, 97% 46%, 93% 48%, 71% 49%, 96% 51%, 51% 52%, 72% 54%, 8% 55%, 12% 57%, 33% 58%, 43% 59%, 81% 61%, 20% 62%, 57% 64%, 22% 65%, 57% 67%, 22% 68%, 81% 70%, 82% 71%, 8% 72%, 45% 74%, 61% 75%, 65% 77%, 100% 78%, 45% 80%, 76% 81%, 20% 83%, 29% 84%, 56% 86%, 38% 87%, 89% 88%, 15% 90%, 60% 91%, 44% 93%, 47% 94%, 99% 96%, 90% 97%, 92% 99%, 17% 100%, calc(100% + 1px) 100%, calc(100% + 1px) 0%);
+	--torn-right-clip-path:polygon(7% 0%, 79% 1%, 14% 3%, 50% 4%, 21% 6%, 7% 7%, 92% 9%, 83% 10%, 98% 12%, 1% 13%, 42% 14%, 26% 16%, 14% 17%, 51% 19%, 74% 20%, 97% 22%, 43% 23%, 23% 25%, 65% 26%, 10% 28%, 25% 29%, 2% 30%, 31% 32%, 63% 33%, 34% 35%, 52% 36%, 23% 38%, 79% 39%, 46% 41%, 3% 42%, 54% 43%, 62% 45%, 80% 46%, 44% 48%, 6% 49%, 53% 51%, 24% 52%, 74% 54%, 10% 55%, 91% 57%, 63% 58%, 68% 59%, 11% 61%, 78% 62%, 19% 64%, 37% 65%, 2% 67%, 39% 68%, 11% 70%, 8% 71%, 85% 72%, 41% 74%, 21% 75%, 30% 77%, 8% 78%, 45% 80%, 37% 81%, 36% 83%, 28% 84%, 51% 86%, 87% 87%, 98% 88%, 51% 90%, 55% 91%, 53% 93%, 57% 94%, 22% 96%, 25% 97%, 45% 99%, 56% 100%, -10% 100%, -10% 0%);
+}
+
+.torn_container{
+	float:left;
+	clear:both;
+	margin-bottom:1.2em;
+	position:relative;
+}
+.torn_container>div:first-child{
+	margin-left:var(--torn-shadow-offset-x);
+	margin-top:var(--torn-shadow-offset-y);
+	left:0px;
+	top:0px;
+	right:calc(0px - var(--torn-shadow-offset-x));
+	bottom:calc(0px - var(--torn-shadow-offset-y));
+	position:absolute;
+	z-index:1;
+	filter:blur(var(--torn-shadow-blur));
+}
+.torn_container>div:nth-child(2), .torn_container>div:nth-child(2)>span{
+	vertical-align:middle;
+}
+.torn_container>div:nth-child(2), .torn_left>div:nth-child(2):before, .torn_right>div:nth-child(2):after{
+	background-color:var(--torn-background-color);
+}
+.torn_container>div:nth-child(2), .torn_container>div:nth-child(2){
+	display:inline-block;
+	position:relative;
+	z-index:2;
+	padding:0.4em;
+}
+.torn_left>div:nth-child(2):before, .torn_left>div:first-child:before{
+	content:'';
+	position:absolute;
+	left:calc(0em - var(--torn-left-width));
+	top:0px;
+	width:var(--torn-left-width);
+	bottom:0px;
+	-webkit-clip-path:var(--torn-left-clip-path);
+	clip-path:var(--torn-left-clip-path);
+}
+.torn_container>div:first-child, .torn_left>div:first-child:before, .torn_right>div:first-child:after{
+	background-color:var(--torn-shadow-background-color);
+}
+.torn_right>div:nth-child(2):after, .torn_right>div:first-child:after{
+	content:'';
+	position:absolute;
+	left:100%;
+	top:0px;
+	right:calc(0px - var(--torn-right-width));
+	bottom:0px;
+	-webkit-clip-path:var(--torn-right-clip-path);
+	clip-path:var(--torn-right-clip-path);
+}
+.torn_right>div:nth-child(2):after{
+	left:calc(100% - 0.5px);
+}
