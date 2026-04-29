@@ -172,7 +172,8 @@ body {
 }
 
 .selectionHub {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr;
 	justify-content: center;
 	gap: 1em;
 	flex-wrap: wrap;
