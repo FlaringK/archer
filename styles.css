@@ -158,6 +158,7 @@ body {
 
 	margin-top: 1em;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 2em;
 
@@ -296,35 +297,45 @@ body {
 }
 
 .shop {
-
+	position: relative;
 	display: flex;
-	width: max-content;
-	margin: auto;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	transition: all .25s;
 	text-decoration: none;
 	color: white;
 
+	height: 300px;
+	overflow: hidden;
+
 	&:hover {
 		scale: 1.1;
 		text-decoration: underline;
 
 		img {
-			rotate: 5deg;
-			scale: 1;
+			transform: translate(-450px) scale(1) rotate(5deg);
 		}
 		
 		div + img {
-			rotate: -5deg;
-			scale: 1;
+			transform: translate(450px) scale(1) rotate(-5deg);
 		}
 	}
 
 	img {
 		max-height: 300px;
 		transition: all .25s;
-		scale: 0.8;
+
+		position: absolute;
+		left: 50%;
+		transform: translate(-450px) scale(0.8);
+	}
+
+	div + img {
+		left: unset;
+		right: 50%;
+		transform: translate(450px) scale(0.8);
+
 	}
 
 	div {
@@ -333,7 +344,6 @@ body {
 		padding: 1em 2em;
 		border-radius: 1em;
 
-		margin: -5em;
 		z-index: 5;
 	}
 	
