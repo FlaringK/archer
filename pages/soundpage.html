@@ -1,18 +1,24 @@
-<img id="hero" src="./TIME ARCHER BRANDING PACKAGE/PROJECT SOUNDPAGE BRANDING/Project s banner.png" alt="">
-
-<iframe id="youtubePreview" src="https://www.youtube.com/embed/3HTib8A9Cak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<img id="hero" src="./assets/soundpage/banner.png" alt="">
 
 <div class="linkRow">
-	<a href="" target="_blank">
+	<a href="https://www.youtube.com/@projectsoundpage/featured" target="_blank">
 		<img src="./assets/youtube.svg" alt="">
 	</a>
-	<a href="" target="_blank">
+	<a href="https://psoundpage.tumblr.com/" target="_blank">
 		<img src="./assets/tumblr.svg" alt="">
 	</a>
-	<a href="" target="_blank">
+	<a href="https://x.com/psoundpage" target="_blank">
 		<img src="./assets/x.svg" alt="">
 	</a>
+	<a href="https://bsky.app/profile/psoundpage.bsky.social" target="_blank">
+		<img src="./assets/bluesky.svg" alt="">
+	</a>
+	<a href="https://www.patreon.com/c/ProjectSoundpage" target="_blank">
+		<img src="./assets/patreon.svg" alt="">
+	</a>
 </div>
+
+<iframe id="youtubePreview" src="https://www.youtube.com/embed/3HTib8A9Cak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <div id="details">
 
@@ -26,10 +32,19 @@
 
 </div>
 
+<a href="https://shop.fruityrumpus.com/collections/project-soundpage" target="_blank"class="shop">
+
+	<img src="./assets/soundpage/hoodie.png" alt="">
+	<div class="button">Project Soundpage Merch</div>
+	<img src="./assets/soundpage/Sweatshirt.png" alt="">
+
+</a>
+
 <style>
 
 	#content {
-		background-image: url("./TIME ARCHER BRANDING PACKAGE/PROJECT SOUNDPAGE BRANDING/background.png");
+		background-image: url("./assets/soundpage/clood3x.png");
+		background-attachment: fixed;
 		background-size: cover;
 		background-position: center;
 		color: var(--ta-black);
@@ -37,12 +52,13 @@
 		min-height: 100vh;
 
 		--sound-blue: #3bc6d1;
+		--sound-green: #8bbc19;
 	}
 
 	#hero {
 		max-width: calc(100% + 4em);
 		margin: -2em -2em;
-		margin-bottom: 1em;
+		margin-bottom: 0;
 	}
 
 	#soundLogo {
@@ -56,6 +72,7 @@
 		aspect-ratio: 16 / 9;
 		max-width: 100%;
 		width: 650px;
+		margin-top: 1em;
 	}
 
 	#details {
@@ -70,9 +87,12 @@
 		border-radius: .5em;
 	}
 
-	.linkRow img {
+	#content .linkRow img {
 		filter: none;
 	}
 
+	.shop div {
+		background: var(--sound-green);
+	}
 
 </style>

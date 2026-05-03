@@ -129,11 +129,16 @@ body {
 		position: sticky;
 		top: 0;
 		padding: 5px 10px;
+		z-index: 10;
 	}
 
 	#phoneLogo {
 		max-height: 60px;
 		transition: all .5s;
+	}
+
+	.preview-hub a {
+		min-width: 80vw !important;
 	}
 
 }
@@ -166,7 +171,20 @@ body {
 
 	img {
 		width: 50px;
+		max-width: 100%;
 		filter: invert(1);
+	}
+
+	&.index {
+
+		position: absolute;
+		bottom: 2em;
+		left: 2em;
+		right: 2em;
+
+		gap: 1em;
+		justify-content: space-between;
+
 	}
 
 }
@@ -203,4 +221,120 @@ body {
 		max-height: 100%;
 		transition: scale .25s;
 	}
+}
+
+.preview-hub {
+
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2em;
+	margin: 1em;
+
+	a {
+		position: relative;
+		flex-grow: 1;
+		min-height: 50vh;
+		min-width: 400px;
+		background-size: cover;
+		background-position: center;
+		text-align: left;
+
+		border-radius: 1em;
+		overflow: hidden;
+		padding: 1em 1em;
+
+		transition: all .25s;
+
+		.preview-title {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			background-color: var(--ta-lilac);
+
+			
+			font-family: "Montserrat", sans-serif;
+			padding: .5em 1em;
+			font-size: x-large;
+			text-align: right;
+			font-weight: bold;
+		}
+
+		img.preview-logo {
+			max-height: 20%;
+			max-width: 100%;
+			position: absolute;
+			
+			left: 50%;
+			transform: translate(-50%);
+		}
+
+		img.preview-hero {
+			max-height: 80%;
+			position: absolute;
+			bottom: 0%;
+
+			left: 50%;
+			transform: translate(-50%);
+		}
+
+		&:hover {
+			scale: 1.1;
+			z-index: 5;
+		}
+	}
+}
+
+#preview-voft {
+	background-image: url(./assets/voft/VOFT\ BANNER\ BACKGROUND.png);
+}
+
+#preview-sound {
+	background-image: url(./assets/soundpage/bannerNoLogo.png);
+}
+
+.shop {
+
+	display: flex;
+	width: max-content;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	transition: all .25s;
+	text-decoration: none;
+	color: white;
+
+	&:hover {
+		scale: 1.1;
+		text-decoration: underline;
+
+		img {
+			rotate: 5deg;
+			scale: 1;
+		}
+		
+		div + img {
+			rotate: -5deg;
+			scale: 1;
+		}
+	}
+
+	img {
+		max-height: 300px;
+		transition: all .25s;
+		scale: 0.8;
+	}
+
+	div {
+		font-size: x-large;
+		font-weight: bold;
+		padding: 1em 2em;
+		border-radius: 1em;
+
+		margin: -5em;
+		z-index: 5;
+	}
+	
 }
