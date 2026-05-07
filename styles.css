@@ -27,6 +27,7 @@ body {
 	font-optical-sizing: auto;
 	min-height: 90vh;
 	box-sizing: border-box;
+	font-size: large;
 	
 
 	background-color: var(--ta-black);
@@ -150,6 +151,26 @@ body {
 
 .transitioning #content{
 	opacity: 0;
+}
+
+.loading::after {
+	content: "Loading...";
+
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: black;
+	font-size: 30px;
+	opacity: 0.8;
+
+	transition: opacity 2s;
+
+	@starting-style {
+		opacity: 0;
+	}
 }
 
 /* Common Components */
@@ -294,6 +315,10 @@ body {
 
 #preview-sound {
 	background-image: url(./assets/soundpage/bannerNoLogo.png);
+}
+
+#preview-ghost {
+	background-image: url(./assets/ghost/2026_TITLECARD_CEPPI_ARI_GhostTrip.png);
 }
 
 .shop {
